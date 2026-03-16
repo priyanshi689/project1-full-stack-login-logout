@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template
 from model.users import Users
 from model.users import db
@@ -8,6 +9,7 @@ from form import RegisterForm
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "your_secret_key_here"
 db_url = os.environ.get("DATABASE_URL")
+
 
 if db_url and db_url.startswith("postgres://"):
     db_url = db_url.replace("postgres://", "postgresql://", 1)
